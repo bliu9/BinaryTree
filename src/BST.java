@@ -48,7 +48,31 @@ public class BST {
      */
     public boolean search(int val) {
         // TODO: Complete the search function
-        return false;
+        return searchHelper(val, this.getRoot());
+    }
+
+    public boolean searchHelper(int val, BSTNode root)
+    {
+        //base case 1
+        if (root == null)
+        {
+            return false;
+        }
+        //base case 2
+        if (val == root.getVal())
+        {
+            return true;
+        }
+        //if val smaller than root go left
+        if (val<root.getVal())
+        {
+            return searchHelper(val, root.getLeft());
+        }
+        //if val bigger than root go right
+        if (val>root.getVal())
+        {
+            return searchHelper(val, root.getRight());
+        }
     }
 
     /**
